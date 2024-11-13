@@ -32,7 +32,7 @@ const MenuCard = (props: Props) => {
         Router.push(`/${props.menu.no}`)
     }
     return (
-        <div className=" w-full max-h-64 p-2 bg-white rounded-xl transform transition-all hover:-translate-y-2 duration-300 shadow-lg hover:shadow-2xl">
+        <div className=" w-full p-2 bg-white rounded-xl transform transition-all hover:-translate-y-2 duration-300 shadow-lg hover:shadow-2xl">
             <div className='grid grid-cols-3 gap-1 items-center'>
                 <div className=' col-auto items-center'>
                     <Image className=" h-40 object-cover rounded-xl" src={ph_rice} alt="" width={100} height={100} />
