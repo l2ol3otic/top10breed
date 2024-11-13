@@ -32,15 +32,22 @@ const MenuCard = (props: Props) => {
         Router.push(`/${props.menu.no}`)
     }
     return (
-        <div className=" w-full p-2 bg-white rounded-xl transform transition-all hover:-translate-y-2 duration-300 shadow-lg hover:shadow-2xl">
-            <div className='flex w-full'>
-                <div className='flex flex-col w-28'>
-                    <Image className="h-40 object-cover rounded-xl" src={ph_rice} alt="" width={100} height={60} />
-                    <Badge variant="outline">Badge</Badge>
+        <div className=" w-full max-h-64 p-2 bg-white rounded-xl transform transition-all hover:-translate-y-2 duration-300 shadow-lg hover:shadow-2xl">
+            <div className='grid grid-cols-3 gap-1 items-center'>
+                <div className=' col-auto items-center'>
+                    <Image className=" h-40 object-cover rounded-xl" src={ph_rice} alt="" width={100} height={100} />
+                    <Badge variant="secondary" className=' justify-center'>{props.menu.rice_Type}</Badge>
                 </div>
-                <div className="p-2 ">
-                    <h2 className="font-bold text-lg mb-2 ">{props.menu.rice_name}</h2>
-                    <p className="text-sm text-gray-600">{props.menu.history}</p>
+                <div className=" col-span-2 ">
+                    <h2 className="font-bold text-lg mb-2">{props.menu.rice_name}</h2>
+                    <ul className=" list-disc list-inside">
+                        {props.menu.Features.map((fearure, index) => {
+                            return (
+                                <li key={index} className="text-xs text-gray-600 text-ellipsis overflow-hidden indent-4 ">{fearure}</li>
+                            )
+                        })}
+                    </ul>
+
                 </div>
             </div>
 
@@ -49,7 +56,7 @@ const MenuCard = (props: Props) => {
                     href='#'
                     className="text-white bg-purple-600 px-3 py-1 rounded-md hover:bg-purple-700"
                     onClick={() => { selectedBreed() }}
-                >Learn More</a>
+                >ข้อมูลเพิ่มเติม</a>
             </div>
         </div>
 
