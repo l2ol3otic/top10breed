@@ -62,8 +62,11 @@ const Page = () => {
                     <Separator />
                     <h3 className="font-bold text-xl mt-2">ข้อควรระวัง หรือ ข้อจำกัด</h3>
                     <p className="text-md text-gray-600 indent-2 mb-2">{selected?.Limitations}</p>
+                    <Separator />
+                    <p className="text-xs text-gray-600 indent-2 mt-2">ข้อมูลจาก กรมการข้าว</p>
                 </div>
             </div>
+            
         </div>
     )
 }
