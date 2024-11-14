@@ -8,6 +8,7 @@ import Image from 'next/image'
 import { ArrowLeft } from 'lucide-react'
 import ph_rice from '@/public/image/ph_rice.png'
 import { Badge } from '@/components/ui/badge'
+import ImageLayout from '@/components/custom/ImageLayout'
 
 const Page = () => {
     const Router = useRouter()
@@ -26,10 +27,8 @@ const Page = () => {
                     <div className='flex justify-end'>
                         <Badge className=' justify-center bg-cyan-500'>{selected?.rice_Type}</Badge>
                     </div>
-                    <div className='grid grid-cols-3 py-6 content-center'>
-                        <Image className=" h-48 object-cover rounded-xl" src={selected?.image ? selected.image : ph_rice} loading='lazy' alt="" width={100} height={100} />
-                        <Image className=" h-48 object-cover rounded-xl" src={selected?.image ? selected.image : ph_rice} loading='lazy' alt="" width={100} height={100} />
-                        <Image className=" h-48 object-cover rounded-xl" src={selected?.image ? selected.image : ph_rice} loading='lazy' alt="" width={100} height={100} />
+                    <div className='flex justify-center gap-2'>
+                        <ImageLayout catagory={selected?.no} />
                     </div>
                     <h3 className="font-bold text-xl mt-2">โดย</h3>
                     <h2 className="text-md font-bold indent-2">{selected?.department}</h2>
@@ -41,7 +40,7 @@ const Page = () => {
                     <Separator />
                     <h3 className="font-bold text-xl mt-2">ลักษณะประจำพันธุ์</h3>
                     <ul className="list-disc  list-outside pl-5 mb-2">
-                        {selected.characteristics.map((characteristic: any, index: number) => {
+                        {selected.characteristics?.map((characteristic: any, index: number) => {
                             return (
                                 <li key={index} className="text-md text-gray-600 ">{characteristic}</li>
                             )
@@ -50,7 +49,7 @@ const Page = () => {
                     <Separator />
                     <h3 className="font-bold text-xl mt-2">ลักษณะเด่น</h3>
                     <ul className="list-disc list-outside pl-5 mb-2">
-                        {selected.Features.map((feature: any, index: number) => {
+                        {selected.Features?.map((feature: any, index: number) => {
                             return (
                                 <li key={index} className="text-md text-gray-600 ">{feature}</li>
                             )
@@ -63,10 +62,11 @@ const Page = () => {
                     <h3 className="font-bold text-xl mt-2">ข้อควรระวัง หรือ ข้อจำกัด</h3>
                     <p className="text-md text-gray-600 indent-2 mb-2">{selected?.Limitations}</p>
                     <Separator />
-                    <p className="text-xs text-gray-600 indent-2 mt-2">ข้อมูลจาก กรมการข้าว</p>
+                    <p className="text-xs text-gray-600 indent-2 mt-2"></p>
+                    {/* <p className="text-xs text-gray-600 indent-2 mt-2">ข้อมูลจาก กรมการข้าว</p> */}
                 </div>
             </div>
-            
+
         </div>
     )
 }
